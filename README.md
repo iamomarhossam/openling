@@ -26,7 +26,6 @@ I'm building it primarily for the **Egypt State Award for the Young Creator** �
 - 🤖 **AI that talks with you** — speak into the mic, get real-time corrections on your pronunciation, grammar, and phrasing.
 - 🎯 **Personalized for you** — your own words, grammar lessons, reading articles, and writing tasks, all tailored to your goals.
 - 🌍 **Arabic-first, built for the world.**
-- 🐳 **Self-hostable** with Docker.
 
 ---
 
@@ -45,9 +44,9 @@ I'm building it primarily for the **Egypt State Award for the Young Creator** �
 
 ## 🛠️ Tech Stack
 
-**Frontend (`client/`)** — Vue.js 3, Vue Router, Pinia, Sass  
-**Backend (`server/`)** — Hono.js, JavaScript  
-**Tooling** — pnpm, Docker
+**Frontend (`client/`)** — Vue.js 3, Vue Router, Sass, JavaScript, Pinia
+**Backend (`server/`)** — Python, Flask, SQLite, mypy, ruff
+**Tooling** — pnpm, pip
 
 ---
 
@@ -56,7 +55,7 @@ I'm building it primarily for the **Egypt State Award for the Young Creator** �
 ```
 openling/
 ├── client/ # Frontend (Vue.js)
-├── server/ # Backend (Hono.js)
+├── server/ # Backend (Python)
 ├── public/ # Static assets (logo, etc.)
 ├── LICENSE # MIT License
 └── README.md
@@ -66,7 +65,7 @@ openling/
 
 ## 🚦 Getting Started
 
-**Prerequisites:** Node.js (v18+), pnpm, Docker (optional)
+**Prerequisites:** Node.js (v18+), pnpm
 
 ```bash
 git clone https://github.com/omarhossdev/openling.git
