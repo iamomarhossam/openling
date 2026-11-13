@@ -4,6 +4,9 @@
   <img src="public/logo.jpg" alt="OpenLing Logo" width="140" />
 </p>
 
+> [!WARNING]
+> **This project is currently on hold.** I am not actively working on it at this time (as of November 2026). It may be incomplete, broken, or unstable. Feel free to explore the code, but please don't expect updates or support in the near future
+
 > **OpenLing** is a 100% free, open-source language learning platform — starting with **English for Arabic speakers**, built for the world.  
 > Learn vocabulary, grammar, writing, speaking, and reading with an AI that talks to you, corrects your mistakes in real time via mic and voice, and tailors everything to *your* goals.
 
@@ -18,8 +21,6 @@
 ## ✨ About
 
 **OpenLing** is a modern, open-source language learning platform. It's **Arabic-first** today (English for Arabic speakers), and **built for the world** — more languages coming soon.
-
-I'm building it primarily for the **Egypt State Award for the Young Creator** 🏆, but it's also a fully open-source project and portfolio piece.
 
 **Why OpenLing?**
 - 🤍 **100% free & open source** — forever.
@@ -77,9 +78,8 @@ pnpm dev
 
 ## 🤝 Contributing
 
-OpenLing is currently a **solo project** being developed for the **Egypt State Award for the Young Creator** 🏆, so I'm not accepting code contributions (PRs) just yet — the project needs to stay my own work for the competition.
-
-**After the award, the doors open!** 🚪 Contributions will be very welcome.
+> [!WARNING]
+> **This project is currently on hold.** I am not actively working on it at this time (as of November 2026). 
 
 In the meantime, you can still help a lot:
 - ⭐ **Star the repo** — it means a lot!
