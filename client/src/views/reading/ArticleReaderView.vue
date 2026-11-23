@@ -17,28 +17,3 @@
   </div>
 
 </template>
-<style scoped lang="scss">
-  * { padding: 0; margin: 0; box-sizing: border-box; }
-  
-  h1 {
-    text-align: center;
-    font-size: 1.25rem;
-    font-family: serif;
-  }
-  hgroup p { text-align: center; font-size: 0.75rem; padding: 10px 0; }
-
-  .passage {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.25em; // space between words
-
-    span {
-      cursor: pointer;
-      transition: background 0.15s;
-
-      &:hover {
-        background: rgba(0, 0, 0, 0.06);
-      }
-    }
-  }
-</style>

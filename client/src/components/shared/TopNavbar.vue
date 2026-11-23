@@ -1,5 +1,5 @@
 <script setup>
-  import '@styles/top_nav.scss';
+
 </script>
 
 <template>

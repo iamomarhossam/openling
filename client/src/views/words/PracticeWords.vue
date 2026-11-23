@@ -3,7 +3,6 @@
   import { onKeyStroke } from '@vueuse/core'
   import { speak } from "@/utils/helpers";
   import vocabs from '@/data/data.json';
-  import '@styles/views/practice_words.scss';
 
   // Task
   //------

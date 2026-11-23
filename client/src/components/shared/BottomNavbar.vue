@@ -1,6 +1,5 @@
 <script setup>
   import { RouterLink } from 'vue-router'
-  import '@styles/bottom_nav.scss';
 </script>
 <template>
   <nav id="bottom-nav">

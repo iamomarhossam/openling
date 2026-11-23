@@ -1,6 +1,5 @@
 <script setup>
 import { RouterLink } from 'vue-router'
-import "@styles/views/words.scss"
 import vocabs from '@/data/data.json'
 </script>
 
