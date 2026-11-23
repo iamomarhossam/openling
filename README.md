@@ -4,11 +4,8 @@
   <img src="public/logo.jpg" alt="OpenLing Logo" width="140" />
 </p>
 
-> [!WARNING]
-> **This project is currently on hold.** I am not actively working on it at this time (as of November 2026). It may be incomplete, broken, or unstable. Feel free to explore the code, but please don't expect updates or support in the near future
-
 > **OpenLing** is a 100% free, open-source language learning platform — starting with **English for Arabic speakers**, built for the world.  
-> Learn vocabulary, grammar, writing, speaking, and reading with an AI that talks to you, corrects your mistakes in real time via mic and voice, and tailors everything to *your* goals.
+> Learn vocabulary, grammar, writing, speaking, reading, and tailors everything to *your* goals.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Vue.js](https://img.shields.io/badge/Vue.js-3.x-4FC08D?logo=vue.js&logoColor=white)](https://vuejs.org/)
@@ -24,8 +21,7 @@
 
 **Why OpenLing?**
 - 🤍 **100% free & open source** — forever.
-- 🤖 **AI that talks with you** — speak into the mic, get real-time corrections on your pronunciation, grammar, and phrasing.
-- 🎯 **Personalized for you** — your own words, grammar lessons, reading articles, and writing tasks, all tailored to your goals.
+- 🎯 **Personalized for you** — your own words, grammar lessons, reading articles, and writing tasks, all tailored to your goals **with AI help.**
 - 🌍 **Arabic-first, built for the world.**
 
 ---
@@ -34,19 +30,17 @@
 
 - 📚 **Vocabulary** — personalized word bank
 - 📝 **Grammar** — tailored lessons & exercises
-- 🎙️ **Speaking** — talk with AI via mic, get corrected in real time
 - ✍️ **Writing** — practice with AI feedback
 - 📖 **Reading** — articles matched to your goals
-- 🤖 **AI Assistant** — conversation, correction, and guidance
-- 👥 **Community** — learn together
+- 👥 **Community** — anyone can add words, grammar lessons so we all learn from each others with AI help
 - 🌐 **More languages** — beyond Arabic/English, coming soon
 
 ---
 
 ## 🛠️ Tech Stack
 
-**Frontend (`client/`)** — Vue.js 3, Vue Router, Sass, JavaScript, Pinia
-**Backend (`server/`)** — Python, Flask, SQLite, mypy, ruff
+**Frontend (`client/`)** — Vue.js 3, Vue Router, Tailwind CSS, JavaScript, Pinia
+**Backend (`server/`)** — Hono.js, Turso (SQLite), Drizzle ORM
 **Tooling** — pnpm, pip
 
 ---
@@ -56,7 +50,7 @@
 ```
 openling/
 ├── client/ # Frontend (Vue.js)
-├── server/ # Backend (Python)
+├── server/ # Backend (Hono.js)
 ├── public/ # Static assets (logo, etc.)
 ├── LICENSE # MIT License
 └── README.md
@@ -78,8 +72,7 @@ pnpm dev
 
 ## 🤝 Contributing
 
-> [!WARNING]
-> **This project is currently on hold.** I am not actively working on it at this time (as of November 2026). 
+I'm developing this project for [Creative Kid Award Egypt 2027](https://ckp.eg/) so this project is not open for code collaboration until I submit the project by 31 December 2027.
 
 In the meantime, you can still help a lot:
 - ⭐ **Star the repo** — it means a lot!
