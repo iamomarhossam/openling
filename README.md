@@ -11,7 +11,6 @@
 [![Vue.js](https://img.shields.io/badge/Vue.js-3.x-4FC08D?logo=vue.js&logoColor=white)](https://vuejs.org/)
 [![Hono.js](https://img.shields.io/badge/Hono.js-E36002?logo=hono&logoColor=white)](https://hono.dev/)
 [![pnpm](https://img.shields.io/badge/pnpm-F69220?logo=pnpm&logoColor=white)](https://pnpm.io/)
-[![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)](https://www.docker.com/)
 
 ---
 
@@ -32,16 +31,16 @@
 - 📝 **Grammar** — tailored lessons & exercises
 - ✍️ **Writing** — practice with AI feedback
 - 📖 **Reading** — articles matched to your goals
-- 👥 **Community** — anyone can add words, grammar lessons so we all learn from each others with AI help
-- 🌐 **More languages** — beyond Arabic/English, coming soon
+- 🎙 **Speak** — read the word you see out loud and the app corrects your pronunciation **with AI help** 
+- 👥 **Community** — anyone can add words, grammar lessons so we all learn from each others **with AI help**
 
 ---
 
 ## 🛠️ Tech Stack
 
-**Frontend (`client/`)** — Vue.js 3, Vue Router, Tailwind CSS, JavaScript, Pinia
-**Backend (`server/`)** — Hono.js, Turso (SQLite), Drizzle ORM
-**Tooling** — pnpm, pip
+- **Front End:** VueJS, Tailwind CSS & Pinia
+- **Back End:** Hono.js, Turso, Drizzle ORM
+- **Others:** pnpm package manager
 
 ---
 
