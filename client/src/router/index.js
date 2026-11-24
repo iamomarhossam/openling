@@ -5,7 +5,7 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: () => import('@/views/home/HomeView.vue'),
+    component: () => import('@/views/home/index.vue'),
   },
 
   // Words
