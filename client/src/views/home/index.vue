@@ -39,6 +39,28 @@ import { RouterLink } from 'vue-router'
             </svg>
           </div>
         </RouterLink>
+
+        <!-- النحو -->
+        <RouterLink
+          to="/grammar"
+          class="group flex items-center gap-4 p-4 sm:p-5 bg-white rounded-2xl border-2 border-slate-100 shadow-xs hover:border-indigo-300 hover:shadow-md active:scale-[0.99] transition-all duration-200"
+        >
+          <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-200">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" class="w-7 h-7 fill-current">
+              <path d="M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM56,216V40h88V88a8,8,0,0,0,8,8h48V216Z"/>
+            </svg>
+          </div>
+          <div class="flex-1">
+            <h2 class="text-lg font-bold text-slate-800 group-hover:text-indigo-600 transition-colors">النحو</h2>
+            <p class="text-xs sm:text-sm text-slate-500">قواعد اللغة بطريقة مبسطة</p>
+          </div>
+          <div class="text-slate-300 group-hover:text-indigo-500 group-hover:-translate-x-1 transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" class="w-5 h-5 fill-current">
+              <path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"/>
+            </svg>
+          </div>
+        </RouterLink>
+
       </div>
     </section>
   </div>

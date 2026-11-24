@@ -19,6 +19,16 @@ const routes = [
     name: 'words-practice',
     component: () => import('@/views/words/practice.vue'),
   },
+  {
+    path: '/grammar/',
+    name: 'grammar',
+    component: () => import('@/views/grammar/index.vue'),
+  },
+  {
+    path: '/grammar/:topic',
+    name: 'grammar-page',
+    component: () => import('@/views/grammar/page.vue'),
+  },
 
   // Reading
   {
