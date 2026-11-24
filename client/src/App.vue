@@ -10,7 +10,7 @@
     <BottomNavbar></BottomNavbar>
   </header>
 
-   <main>
+   <main class="bg-slate-50 min-h-screen py-32 sm:py-12">
     <RouterView />
    </main>
 </template>
