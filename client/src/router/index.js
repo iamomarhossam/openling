@@ -12,12 +12,12 @@ const routes = [
   {
     path: '/words/',
     name: 'words',
-    component: () => import('@/views/words/WordsView.vue'),
+    component: () => import('@/views/words/index.vue'),
   },
   {
     path: '/words/practice',
     name: 'words-practice',
-    component: () => import('@/views/words/PracticeWords.vue'),
+    component: () => import('@/views/words/practice.vue'),
   },
 
   // Reading

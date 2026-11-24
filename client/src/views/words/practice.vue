@@ -51,7 +51,7 @@
   onKeyStroke('Enter', handle)
 </script>
 <template>
-  <main dir="rtl" class="flex flex-col items-center justify-center p-4 sm:p-6">
+  <div dir="rtl" class="w-full flex flex-col items-center justify-center">
     <!-- Main Card -->
     <section class="w-full max-w-md bg-white rounded-2xl shadow-lg border border-slate-100 p-6 sm:p-8 flex flex-col gap-6 transition-all">
       
@@ -143,5 +143,5 @@
       </button>
 
     </section>
-  </main>
+  </div>
 </template>
