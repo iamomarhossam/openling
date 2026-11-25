@@ -2,3 +2,4 @@ allowBuilds:
   '@parcel/watcher': true
   onnxruntime-node: true
   protobufjs: true
+  sharp: false

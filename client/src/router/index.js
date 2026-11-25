@@ -29,94 +29,27 @@ const routes = [
     name: 'grammar-page',
     component: () => import('@/views/grammar/page.vue'),
   },
-
-  // Reading
   {
-    path: '/reading/',
-    name: 'reading',
-    component: () => import('@/views/reading/ReadingView.vue'),
+    path: '/read/',
+    name: 'read',
+    component: () => import('@/views/read/index.vue'),
   },
   {
-    path: '/reading/:slug',
-    name: 'reading-article',
-    component: () => import('@/views/reading/ArticleReaderView.vue'),
+    path: '/read/:title',
+    name: 'read-page',
+    component: () => import('@/views/read/page.vue')
   },
-  /*
-  // Listening
-  {
-    path: '/listening/',
-    name: 'listening',
-    component: () => import('@/views/listening/ListeningView.vue'),
-  },
-  {
-    path: '/listening/:slug',
-    name: 'listening-lesson',
-    component: () => import('@/views/listening/AudioLessonView.vue'),
-  },
-
-  // Speaking
-  {
-    path: '/speaking/',
-    name: 'speaking',
-    component: () => import('@/views/speaking/SpeakingView.vue'),
-  },
-
-  // Writing
-  {
-    path: '/writing/',
-    name: 'writing',
-    component: () => import('@/views/writing/WritingView.vue'),
-  },
-  {
-    path: '/writing/:slug',
-    name: 'writing-task',
-    component: () => import('@/views/writing/WritingTaskView.vue'),
-  },
-
-  // Grammar
-  {
-    path: '/grammar/',
-    name: 'grammar',
-    component: () => import('@/views/grammar/GrammarView.vue'),
-  },
-  {
-    path: '/grammar/:slug',
-    name: 'grammar-topic',
-    component: () => import('@/views/grammar/GrammarTopicView.vue'),
-  },
-
-  // Community
-  {
-    path: '/community/',
-    name: 'community',
-    component: () => import('@/views/community/CommunityView.vue'),
-  },
-
-  // Streak
-  {
-    path: '/streak/',
-    name: 'streak',
-    component: () => import('@/views/streak/StreakView.vue'),
-  },
-
-  // Goals
-  {
-    path: '/goals/',
-    name: 'goals',
-    component: () => import('@/views/goals/GoalsView.vue'),
-  },
-
-  // Settings
-  {
-    path: '/settings/',
-    name: 'settings',
-    component: () => import('@/views/settings/PreferencesView.vue'),
-  },*/
+  // 404 Page Not found
   { 
     path: '/:pathMatch(.*)*',
     name: 'not-found',
     component: () => import('@/views/NotFoundView.vue') 
   },
+  {
+    path: '/ai-models',
+    name: 'AIModels',
+    component: () => import('@/views/AIModels.vue')
+  }
 ]
 
 const router = createRouter({

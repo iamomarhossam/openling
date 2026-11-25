@@ -1,54 +1,129 @@
-
 <script setup>
-import { RouterLink } from 'vue-router'
-import {
-  BookOpen,
-  Languages,
-  Headphones,
-  BookText,
-  PenLine,
-  ArrowLeft,
-  Sparkles
-} from 'lucide-vue-next'
+  import { ref, onMounted } from 'vue'
+  /*******************************/
+  /*=========== AI =============*/
+  /******************************/
+  import {
+    initTranslation,
+    initVoice,
+    requestPersistentStorage
+  } from '@/utils/ai'
 
-const categories = [
-  {
-    title: 'الكلمات',
-    description: 'احفظ كلمات جديدة واختبر حصيلتك',
-    path: '/words',
-    icon: Languages,
-    color: 'indigo'
-  },
-  {
-    title: 'النحو',
-    description: 'قواعد اللغة بطريقة مبسطة',
-    path: '/grammar',
-    icon: BookText,
-    color: 'violet'
-  },
-  {
-    title: 'الاستماع',
-    description: 'طور مهارة الاستماع والنطق',
-    path: '/listen',
-    icon: Headphones,
-    color: 'blue'
-  },
-  {
-    title: 'القراءة',
-    description: 'نصوص وقصص قصيرة للفهم',
-    path: '/read',
-    icon: BookOpen,
-    color: 'cyan'
-  },
-  {
-    title: 'الكتابة',
-    description: 'تمارين الإنشاء وصياغة الجمل',
-    path: '/write',
-    icon: PenLine,
-    color: 'purple',
-    wide: true
+  const showAISetup = ref(false)
+  const aiSetupDone = ref(false)
+  const downloading = ref(false)
+  const progress = ref(0)
+  const downloadType = ref('')
+
+  const translationEnabled = ref(false)
+  const voiceEnabled = ref(false)
+  const setupError = ref('')
+
+  onMounted(() => {
+    aiSetupDone.value =
+      localStorage.getItem('ai-setup-done') === 'true'
+
+    showAISetup.value = !aiSetupDone.value
+  })
+
+  async function downloadAI() {
+    downloading.value = true
+    setupError.value = ''
+
+    try {
+      await requestPersistentStorage()
+
+      if (translationEnabled.value) {
+        downloadType.value = 'الترجمة'
+
+        await initTranslation(p => {
+          if (typeof p?.progress === 'number') {
+            progress.value = Math.round(p.progress)
+          }
+        })
+      }
+
+      if (voiceEnabled.value) {
+        downloadType.value = 'الصوت الطبيعي'
+
+        await initVoice(p => {
+          if (typeof p?.progress === 'number') {
+            progress.value = Math.round(p.progress)
+          }
+        })
+
+        localStorage.setItem('voice-approved', 'true')
+      }
+
+      localStorage.setItem('ai-setup-done', 'true')
+      aiSetupDone.value = true
+      showAISetup.value = false
+
+    } catch (error) {
+      console.error(error)
+      setupError.value = 'حدث خطأ أثناء التحميل. حاول مرة أخرى.'
+    } finally {
+      downloading.value = false
+    }
   }
-]
+
+  function skipAISetup() {
+    localStorage.setItem('ai-setup-done', 'true')
+    showAISetup.value = false
+    aiSetupDone.value = true
+  }
+  /**********************************/
+  /*================================*/
+  /**********************************/
+  import { RouterLink } from 'vue-router'
+  import {
+    BookOpen,
+    Languages,
+    Headphones,
+    BookText,
+    PenLine,
+    ArrowLeft,
+    Sparkles
+  } from 'lucide-vue-next'
+
+  const categories = [
+    {
+      title: 'الكلمات',
+      description: 'احفظ كلمات جديدة واختبر حصيلتك',
+      path: '/words',
+      icon: Languages,
+      color: 'indigo'
+    },
+    {
+      title: 'النحو',
+      description: 'قواعد اللغة بطريقة مبسطة',
+      path: '/grammar',
+      icon: BookText,
+      color: 'violet'
+    },
+    {
+      title: 'الاستماع',
+      description: 'طور مهارة الاستماع والنطق',
+      path: '/listen',
+      icon: Headphones,
+      color: 'blue'
+    },
+    {
+      title: 'القراءة',
+      description: 'نصوص وقصص قصيرة للفهم',
+      path: '/read',
+      icon: BookOpen,
+      color: 'cyan'
+    },
+    {
+      title: 'الكتابة',
+      description: 'تمارين الإنشاء وصياغة الجمل',
+      path: '/write',
+      icon: PenLine,
+      color: 'purple',
+      wide: true
+    }
+  ]
 </script>
 
 <template>
@@ -56,6 +131,110 @@ const categories = [
     dir="rtl"
     class="min-h-screen w-full flex justify-center px-4 py-8 sm:py-12"
   >
+
+    <!--==============================================-->
+    <!--================ DOWNLOAD ====================-->
+    <!-- FIRST-RUN AI SETUP -->
+    <div
+      v-if="showAISetup"
+      class="fixed inset-0 z-[200] flex items-center justify-center
+      bg-slate-950/50 backdrop-blur-sm p-4"
+    >
+      <section class="w-full max-w-md bg-white rounded-3xl p-6 shadow-2xl space-y-5">
+
+        <div class="text-center space-y-2">
+          <div class="mx-auto w-14 h-14 rounded-2xl bg-indigo-50
+          text-indigo-600 flex items-center justify-center text-2xl">
+            ✨
+          </div>
+
+          <h2 class="text-xl font-extrabold text-slate-800">
+            جهّز أدوات التعلم الذكية!
+          </h2>
+
+          <p class="text-sm text-slate-500 leading-7">
+            يمكنك تنزيل نماذج الذكاء الاصطناعي لتفعيل الترجمة
+            والصوت الطبيعي مباشرة على جهازك.
+          </p>
+        </div>
+
+        <div class="space-y-3">
+
+          <label class="flex items-center gap-3 p-4 rounded-2xl
+          border border-slate-200 cursor-pointer">
+            <input v-model="translationEnabled" type="checkbox"
+              class="w-5 h-5 accent-indigo-600" />
+
+            <div class="flex-1">
+              <p class="font-bold text-slate-800 text-sm">الترجمة الذكية</p>
+              <p class="text-xs text-slate-400 mt-1">
+                ترجمة الإنجليزية إلى العربية
+              </p>
+            </div>
+          </label>
+
+          <label class="flex items-center gap-3 p-4 rounded-2xl
+          border border-slate-200 cursor-pointer">
+            <input v-model="voiceEnabled" type="checkbox"
+              class="w-5 h-5 accent-indigo-600" />
+
+            <div class="flex-1">
+              <p class="font-bold text-slate-800 text-sm">الصوت الطبيعي Kokoro</p>
+              <p class="text-xs text-slate-400 mt-1">
+                استمع إلى الكلمات بصوت أكثر طبيعية
+              </p>
+            </div>
+          </label>
+
+        </div>
+
+        <div v-if="downloading" class="space-y-2">
+          <p class="text-sm font-bold text-indigo-600">
+            جاري تحميل {{ downloadType }}...
+          </p>
+
+          <div class="h-2 bg-slate-100 rounded-full overflow-hidden">
+            <div
+              class="h-full bg-indigo-600 transition-all"
+              :style="{ width: progress + '%' }"
+            ></div>
+          </div>
+
+          <p class="text-xs text-slate-400">
+            {{ progress }}%
+          </p>
+        </div>
+
+        <p v-if="setupError" class="text-sm text-red-600">
+          {{ setupError }}
+        </p>
+
+        <button
+          @click="downloadAI"
+          :disabled="downloading || (!translationEnabled && !voiceEnabled)"
+          class="w-full py-3 rounded-xl bg-indigo-600 text-white
+          font-bold hover:bg-indigo-700 disabled:opacity-40"
+        >
+          {{ downloading ? 'جاري التحميل...' : 'تنزيل الأدوات المختارة' }}
+        </button>
+
+        <button
+          v-if="!downloading"
+          @click="skipAISetup"
+          class="w-full py-2 text-sm text-slate-500 font-bold"
+        >
+          تخطي الآن
+        </button>
+
+        <p class="text-xs text-slate-400 text-center leading-6">
+          التنزيل اختياري ومجاني. يحتاج اتصالاً بالإنترنت في المرة الأولى.
+        </p>
+
+      </section>
+    </div>
+    <!--==============================================-->
+    <!--==============================================-->
+
     <section class="w-full max-w-3xl space-y-7">
 
       <!-- Header -->
