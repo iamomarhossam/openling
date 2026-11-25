@@ -1,5 +1,5 @@
 <script setup>
-// Logo includes text already
+import { RouterLink } from 'vue-router';
 </script>
 
 <template>
@@ -11,7 +11,7 @@
       class="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between"
     >
       <!-- Logo Only -->
-      <div class="flex items-center">
+      <RouterLink to="/" class="flex items-center">
         <img
           class="h-10 sm:h-12 w-auto object-contain"
           src="/logo.png"
@@ -19,7 +19,7 @@
           width="78"
           height="78"
         />
-      </div>
+      </RouterLink>
 
       <!-- Streak Counter Badge -->
       <div
