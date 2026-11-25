@@ -76,7 +76,7 @@ function filterVocabs() {
         >
           <option value="a-z" selected>A إلي Z</option>
           <option value="z-a">Z إلي A</option>
-          <option value="noun">كلمات (أسماء)</option>
+          <option value="noun">أسماء</option>
           <option value="verb">أفعال</option>
           <option value="adv">حال</option>
           <option value="adj">صفات</option>

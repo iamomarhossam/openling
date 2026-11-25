@@ -22,10 +22,11 @@ import { RouterLink } from 'vue-router';
       </RouterLink>
 
       <!-- Streak Counter Badge -->
-      <div
+      <RouterLink
         class="flex items-center gap-2 px-3.5 py-1.5 bg-amber-50 border border-amber-200/80 rounded-full shadow-2xs transition-transform hover:scale-105 duration-200"
         role="status"
         aria-label="سلسلة الأيام: 0"
+        to="/streak"
       >
         <div class="w-5 h-5 text-amber-500">
           <svg
@@ -41,7 +42,7 @@ import { RouterLink } from 'vue-router';
           </svg>
         </div>
         <p class="text-sm font-black text-amber-700 tracking-wide" aria-hidden="true">0</p>
-      </div>
+      </RouterLink>
     </nav>
   </header>
 </template>

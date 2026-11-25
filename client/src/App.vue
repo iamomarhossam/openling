@@ -8,7 +8,7 @@
   const route = useRoute()
   // Hide the back button on main bottom-nav root tabs
   const showBackButton = computed(() => {
-    const rootPaths = ['/', '/speak', '/library', '/settings']
+    const rootPaths = ['/', '/speak', '/library', '/settings', '/streak']
     return !rootPaths.includes(route.path)
   })
 </script>
