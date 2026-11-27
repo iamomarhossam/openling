@@ -1,203 +1,140 @@
 <script setup>
-  import { RouterLink } from 'vue-router'
-  import {
-    BookOpen,
-    Languages,
-    Headphones,
-    BookText,
-    PenLine,
-    ArrowLeft,
-    Sparkles
-  } from 'lucide-vue-next'
-
-  const categories = [
-    {
-      title: 'الكلمات',
-      description: 'احفظ كلمات جديدة واختبر حصيلتك',
-      path: '/words',
-      icon: Languages,
-      color: 'indigo'
-    },
-    {
-      title: 'النحو',
-      description: 'قواعد اللغة بطريقة مبسطة',
-      path: '/grammar',
-      icon: BookText,
-      color: 'violet'
-    },
-    {
-      title: 'الاستماع',
-      description: 'طور مهارة الاستماع والنطق',
-      path: '/listen',
-      icon: Headphones,
-      color: 'blue'
-    },
-    {
-      title: 'القراءة',
-      description: 'نصوص وقصص قصيرة للفهم',
-      path: '/read',
-      icon: BookOpen,
-      color: 'cyan'
-    },
-    {
-      title: 'الكتابة',
-      description: 'تمارين الإنشاء وصياغة الجمل',
-      path: '/write',
-      icon: PenLine,
-      color: 'purple',
-      wide: true
-    }
-  ]
+import { RouterLink } from 'vue-router'
 </script>
 
 <template>
-  <section class="w-full max-w-3xl space-y-7">
-
-    <!-- Header -->
-    <header
-      class="relative overflow-hidden rounded-[2rem]
-      bg-gradient-to-br from-indigo-600 via-indigo-700 to-violet-800
-      px-6 py-9 sm:px-10 sm:py-12 text-white shadow-xl shadow-indigo-200/50"
-    >
-      <!-- Decorative elements -->
-      <div
-        class="absolute -top-16 -left-12 h-48 w-48 rounded-full
-        bg-white/10 blur-2xl pointer-events-none"
-      ></div>
-
-      <div
-        class="absolute -bottom-20 right-1/3 h-48 w-48 rounded-full
-        bg-violet-400/20 blur-3xl pointer-events-none"
-      ></div>
-
-      <div class="relative z-10 space-y-4 text-center">
-
-        <div
-          class="mx-auto flex h-14 w-14 items-center justify-center
-          rounded-2xl bg-white/15 border border-white/20
-          shadow-inner"
-        >
-          <Sparkles :size="29" :stroke-width="1.8" />
-        </div>
-
-        <div class="space-y-2">
-          <h1
-            class="text-2xl sm:text-4xl font-extrabold tracking-tight"
-          >
-            ماذا تود أن تتعلم اليوم؟
-          </h1>
-
-          <p class="text-indigo-100 text-sm sm:text-base font-medium">
-            اختر أحد أقسام التعلم أدناه وابدأ رحلتك اليومية
-          </p>
-        </div>
-
-        <div
-          class="mx-auto h-1 w-12 rounded-full bg-white/50"
-        ></div>
-
-      </div>
-    </header>
-
-    <!-- Section heading -->
-    <div class="flex items-center justify-between px-1">
-      <div>
-        <h2 class="text-lg font-extrabold text-slate-800">
-          أقسام التعلم
-        </h2>
-        <p class="text-xs text-slate-400 mt-1">
-          اختر المهارة التي تريد تطويرها
+  <div dir="rtl" class="w-full flex flex-col items-center">
+    <section class="w-full max-w-2xl sm:max-w-3xl space-y-6">
+      
+      <!-- Greeting / Header -->
+      <div class="bg-gradient-to-br from-indigo-600 to-indigo-800 text-white p-6 sm:p-8 rounded-3xl shadow-md text-center space-y-2">
+        <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight">
+          ماذا تود أن تتعلم اليوم؟ ✨
+        </h1>
+        <p class="text-indigo-100 text-sm sm:text-base font-medium">
+          اختر أحد أقسام التعلم أدناه وابدأ رحلتك اليومية
         </p>
       </div>
 
-      <span
-        class="rounded-full bg-indigo-50 px-3 py-1.5
-        text-xs font-bold text-indigo-600"
-      >
-        ٥ أقسام
-      </span>
-    </div>
-
-    <!-- Categories -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-
-      <RouterLink
-        v-for="category in categories"
-        :key="category.path"
-        :to="category.path"
-        :class="[
-          'group relative flex items-center gap-4',
-          'rounded-2xl border border-slate-200/80',
-          'bg-white p-4 sm:p-5',
-          'shadow-sm hover:shadow-lg hover:shadow-indigo-100/60',
-          'hover:-translate-y-1 hover:border-indigo-200',
-          'active:scale-[0.98]',
-          'transition-all duration-200 ease-out',
-          'focus-visible:outline-none focus-visible:ring-2',
-          'focus-visible:ring-indigo-500 focus-visible:ring-offset-2',
-          category.wide ? 'sm:col-span-2' : ''
-        ]"
-      >
-
-        <!-- Icon -->
-        <div
-          :class="[
-            'flex h-14 w-14 shrink-0 items-center justify-center',
-            'rounded-2xl transition-all duration-200',
-            'group-hover:scale-105',
-            category.color === 'indigo'
-              ? 'bg-indigo-50 text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white'
-              : '',
-            category.color === 'violet'
-              ? 'bg-violet-50 text-violet-600 group-hover:bg-violet-600 group-hover:text-white'
-              : '',
-            category.color === 'blue'
-              ? 'bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white'
-              : '',
-            category.color === 'cyan'
-              ? 'bg-cyan-50 text-cyan-600 group-hover:bg-cyan-600 group-hover:text-white'
-              : '',
-            category.color === 'purple'
-              ? 'bg-purple-50 text-purple-600 group-hover:bg-purple-600 group-hover:text-white'
-              : ''
-          ]"
+      <!-- Category Links Grid (Clean, No Subtitles) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+        
+        <!-- الكلمات -->
+        <RouterLink
+          to="/words"
+          class="group flex items-center gap-4 p-4 sm:p-5 bg-white rounded-2xl border-2 border-slate-100 shadow-xs hover:border-indigo-300 hover:shadow-md active:scale-[0.99] transition-all duration-200"
         >
-          <component
-            :is="category.icon"
-            :size="27"
-            :stroke-width="1.8"
-            :aria-hidden="true"
-          />
-        </div>
+          <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-200">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M10 19h-6a1 1 0 0 1 -1 -1v-14a1 1 0 0 1 1 -1h6a2 2 0 0 1 2 2a2 2 0 0 1 2 -2h6a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-6a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2" />
+              <path d="M12 5v16" />
+              <path d="M7 7h1" />
+              <path d="M7 11h1" />
+              <path d="M16 7h1" />
+              <path d="M16 11h1" />
+              <path d="M16 15h1" />
+            </svg>
+          </div>
+          <h2 class="flex-1 text-lg sm:text-xl font-bold text-slate-800 group-hover:text-indigo-600 transition-colors">
+            الكلمات
+          </h2>
+          <div class="text-slate-300 group-hover:text-indigo-500 group-hover:-translate-x-1 transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M15 6l-6 6l6 6" />
+            </svg>
+          </div>
+        </RouterLink>
 
-        <!-- Text -->
-        <div class="min-w-0 flex-1">
-          <h3
-            class="text-base sm:text-lg font-extrabold
-            text-slate-800 transition-colors
-            group-hover:text-indigo-600"
-          >
-            {{ category.title }}
-          </h3>
-
-          <p class="mt-1 text-xs sm:text-sm text-slate-500 leading-relaxed">
-            {{ category.description }}
-          </p>
-        </div>
-
-        <!-- Navigation icon -->
-        <div
-          class="flex h-9 w-9 shrink-0 items-center justify-center
-          rounded-full text-slate-300
-          transition-all duration-200
-          group-hover:bg-indigo-50 group-hover:text-indigo-600
-          group-hover:-translate-x-1"
+        <!-- النحو -->
+        <RouterLink
+          to="/grammar"
+          class="group flex items-center gap-4 p-4 sm:p-5 bg-white rounded-2xl border-2 border-slate-100 shadow-xs hover:border-indigo-300 hover:shadow-md active:scale-[0.99] transition-all duration-200"
         >
-          <ArrowLeft :size="19" :stroke-width="2" />
-        </div>
+          <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-200">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 15v-7.5a3.5 3.5 0 0 1 7 0v7.5" />
+              <path d="M5 10h7" />
+              <path d="M10 18l3 3l7 -7" />
+            </svg>
+          </div>
+          <h2 class="flex-1 text-lg sm:text-xl font-bold text-slate-800 group-hover:text-indigo-600 transition-colors">
+            النحو
+          </h2>
+          <div class="text-slate-300 group-hover:text-indigo-500 group-hover:-translate-x-1 transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M15 6l-6 6l6 6" />
+            </svg>
+          </div>
+        </RouterLink>
 
-      </RouterLink>
+        <!-- الاستماع -->
+        <RouterLink
+          to="/listen"
+          class="group flex items-center gap-4 p-4 sm:p-5 bg-white rounded-2xl border-2 border-slate-100 shadow-xs hover:border-indigo-300 hover:shadow-md active:scale-[0.99] transition-all duration-200"
+        >
+          <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-200">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 15a2 2 0 0 1 2 -2h1a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-1a2 2 0 0 1 -2 -2l0 -3" />
+              <path d="M15 15a2 2 0 0 1 2 -2h1a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-1a2 2 0 0 1 -2 -2l0 -3" />
+              <path d="M4 15v-3a8 8 0 0 1 16 0v3" />
+            </svg>
+          </div>
+          <h2 class="flex-1 text-lg sm:text-xl font-bold text-slate-800 group-hover:text-indigo-600 transition-colors">
+            الاستماع
+          </h2>
+          <div class="text-slate-300 group-hover:text-indigo-500 group-hover:-translate-x-1 transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M15 6l-6 6l6 6" />
+            </svg>
+          </div>
+        </RouterLink>
 
-    </div>
-  </section>
+        <!-- القراءة -->
+        <RouterLink
+          to="/read"
+          class="group flex items-center gap-4 p-4 sm:p-5 bg-white rounded-2xl border-2 border-slate-100 shadow-xs hover:border-indigo-300 hover:shadow-md active:scale-[0.99] transition-all duration-200"
+        >
+          <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-200">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+              <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+              <path d="M3 6l0 13" />
+              <path d="M12 6l0 13" />
+              <path d="M21 6l0 13" />
+            </svg>
+          </div>
+          <h2 class="flex-1 text-lg sm:text-xl font-bold text-slate-800 group-hover:text-indigo-600 transition-colors">
+            القراءة
+          </h2>
+          <div class="text-slate-300 group-hover:text-indigo-500 group-hover:-translate-x-1 transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M15 6l-6 6l6 6" />
+            </svg>
+          </div>
+        </RouterLink>
+
+        <!-- الكتابة -->
+        <RouterLink
+          to="/write"
+          class="group sm:col-span-2 flex items-center gap-4 p-4 sm:p-5 bg-white rounded-2xl border-2 border-slate-100 shadow-xs hover:border-indigo-300 hover:shadow-md active:scale-[0.99] transition-all duration-200"
+        >
+          <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-200">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+              <path d="M13.5 6.5l4 4" />
+            </svg>
+          </div>
+          <h2 class="flex-1 text-lg sm:text-xl font-bold text-slate-800 group-hover:text-indigo-600 transition-colors">
+            الكتابة
+          </h2>
+          <div class="text-slate-300 group-hover:text-indigo-500 group-hover:-translate-x-1 transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M15 6l-6 6l6 6" />
+            </svg>
+          </div>
+        </RouterLink>
+
+      </div>
+    </section>
+  </div>
 </template>
