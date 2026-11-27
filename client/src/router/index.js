@@ -35,9 +35,19 @@ const routes = [
     component: () => import('@/views/read/index.vue'),
   },
   {
-    path: '/read/:title',
+    path: '/read/:id',
     name: 'read-page',
     component: () => import('@/views/read/page.vue')
+  },
+  {
+    path: '/listen/',
+    name: 'listen',
+    component: () => import('@/views/listen/index.vue'),
+  },
+  {
+    path: '/listen/:topic',
+    name: 'listen-page',
+    component: () => import('@/views/listen/page.vue')
   },
   // 404 Page Not found
   { 

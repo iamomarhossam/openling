@@ -3,7 +3,7 @@ import { RouterLink } from 'vue-router'
 </script>
 
 <template>
-  <div dir="rtl" class="w-full flex flex-col items-center">
+  
     <section class="w-full max-w-2xl sm:max-w-3xl space-y-6">
       
       <!-- Greeting / Header -->
@@ -136,5 +136,4 @@ import { RouterLink } from 'vue-router'
 
       </div>
     </section>
-  </div>
 </template>

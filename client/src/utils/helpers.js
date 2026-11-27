@@ -9,3 +9,7 @@ export function speak(text) {
     window.speechSynthesis.speak(utterance)
   }
 }
+
+export function textToUrl(text) { // "Ahmed in the Zoo" -> "ahmed-in-the-zoo"
+  return text.trim().toLowerCase().replace(/\s+/g, "-")
+}
