@@ -45,11 +45,6 @@ const routes = [
     name: 'not-found',
     component: () => import('@/views/NotFoundView.vue') 
   },
-  {
-    path: '/ai-models',
-    name: 'AIModels',
-    component: () => import('@/views/AIModels.vue')
-  }
 ]
 
 const router = createRouter({

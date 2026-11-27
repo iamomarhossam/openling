@@ -21,31 +21,6 @@ import { RouterLink } from 'vue-router';
         />
       </RouterLink>
 
-      <!-- Ai Models -->
-      <RouterLink
-        to="/ai-models"
-        aria-label="إدارة نماذج الذكاء الاصطناعي"
-        title="AI Models"
-        class="flex items-center gap-1.5 rounded-xl px-2.5 py-2 text-indigo-700 transition hover:bg-indigo-50"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          class="h-6 w-6"
-          aria-hidden="true"
-        >
-          <path stroke-linecap="round" stroke-linejoin="round"
-            d="M12 3a3 3 0 0 0-3 3v.3a3 3 0 0 0-3.5 4.8A3.5 3.5 0 0 0 7 17.5V18a3 3 0 0 0 5 2.2V3Z"/>
-          <path stroke-linecap="round" stroke-linejoin="round"
-            d="M12 3a3 3 0 0 1 3 3v.3a3 3 0 0 1 3.5 4.8A3.5 3.5 0 0 1 17 17.5V18a3 3 0 0 1-5 2.2"/>
-          <path stroke-linecap="round" d="M8 9h1m6 0h1M8 14h1m6 0h1"/>
-        </svg>
-        <span class="hidden sm:inline text-sm font-bold">النماذج</span>
-      </RouterLink>
-
       <!-- Streak Counter Badge -->
       <RouterLink
         class="flex items-center gap-2 px-3.5 py-1.5 bg-amber-50 border border-amber-200/80 rounded-full shadow-2xs transition-transform hover:scale-105 duration-200"
