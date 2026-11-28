@@ -13,11 +13,11 @@ import { RouterLink } from 'vue-router';
       <!-- Logo Only -->
       <RouterLink to="/" class="flex items-center">
         <img
-          class="h-10 sm:h-12 w-auto object-contain"
+          class="h-13 sm:h-13 w-auto object-contain"
           src="/logo.png"
-          alt="OpenLing"
-          width="78"
-          height="78"
+          alt="يلا انجلش"
+          width="92"
+          height="92"
         />
       </RouterLink>
 
