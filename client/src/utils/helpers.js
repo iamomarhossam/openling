@@ -10,6 +10,13 @@ export function speak(text) {
   }
 }
 
+export function stopSpeak() {
+  if (typeof window === 'undefined') return
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel()
+  }
+}
+
 export function textToUrl(text) { // "Ahmed in the Zoo" -> "ahmed-in-the-zoo"
   return text.trim().toLowerCase().replace(/\s+/g, "-")
 }

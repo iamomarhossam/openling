@@ -2,13 +2,14 @@
 import { computed, ref, onMounted } from 'vue'
 import { useRoute, RouterLink } from 'vue-router'
 import listening_lessons from '@/data/lesson.json' // (or your import source)
-import { speak } from "@/utils/helpers";
+import { speak, stopSpeak } from "@/utils/helpers";
 
 const route = useRoute()
 const topic = computed(() => String(route.params.topic || ''))
 
 // Reactive lesson lookup
 const lesson = computed(() => listening_lessons.find((l) => l.topic === topic.value))
+const inputRef = ref(null)
 
 // --- Listening & Dictation State ---
 const currentIndex = ref(0)
@@ -38,13 +39,17 @@ const checkChunk = () => {
 }
 
 // Move to next chunk or finish listening phase
-const nextChunk = () => {
+const nextChunk = async () => {
   userText.value = ''
   isChunkChecked.value = false
   isChunkCorrect.value = false
 
+  stopSpeak()
+
   if (currentIndex.value < totalChunks.value - 1) {
     currentIndex.value++
+    inputRef.value.focus()
+    speak(currentEnglishText.value)
   } else {
     isListeningFinished.value = true
   }
@@ -70,6 +75,9 @@ onMounted(() => {
       console.error(e)
     }
   }
+  
+  inputRef.value.focus()
+  speak(currentEnglishText.value)
 })
 
 const selectAnswer = (qIndex, choiceIndex) => {
@@ -107,6 +115,16 @@ const resetQuiz = () => {
   isListeningFinished.value = false
   localStorage.removeItem(storageKey.value)
 }
+
+const isFullStorySpeak = ref(false)
+
+function handleStorySpeak() {
+  isFullStorySpeak.value = !isFullStorySpeak.value
+
+  if (isFullStorySpeak.value) speak(lesson.value.text.join(' '));
+  else { stopSpeak() }
+}
+
 </script>
 
 <template>
@@ -167,10 +185,10 @@ const resetQuiz = () => {
           type="text"
           dir="ltr"
           v-model="userText"
-          :disabled="isChunkChecked"
           placeholder="Type what you heard..."
           class="w-full px-4 py-3.5 text-base sm:text-lg font-medium text-left bg-slate-50 border-2 border-slate-200 rounded-xl outline-none focus:bg-white focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/15 disabled:bg-slate-100 transition-all placeholder:text-slate-400"
           @keyup.enter="!isChunkChecked ? checkChunk() : nextChunk()"
+          ref="inputRef"
         />
 
         <!-- Feedback on Check -->
@@ -206,10 +224,11 @@ const resetQuiz = () => {
           </h2>
           <button
             type="button"
-            @click="speak(lesson.text.join(' '))"
+            @click="handleStorySpeak"
             class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-indigo-700 bg-indigo-50 hover:bg-indigo-100 rounded-xl transition-colors"
           >
-            <span>🔊 استمع للقصة كاملة</span>
+            <span v-if="!isFullStorySpeak">🔊 استمع للقصة كاملة</span>
+            <span v-else>🔈 اوقف الاستماع</span>
           </button>
         </div>
 
@@ -241,7 +260,7 @@ const resetQuiz = () => {
             :key="q.id"
             class="p-4 sm:p-5 bg-slate-50/70 rounded-2xl border border-slate-200/60 space-y-3"
           >
-            <p class="text-base font-bold text-slate-800">
+            <p class="text-base font-bold text-slate-800" dir="ltr">
               {{ qIdx + 1 }}. {{ q.text }}
             </p>
 
