@@ -1,7 +1,7 @@
 <script setup>
 import { computed, ref, onMounted } from 'vue'
 import { useRoute, RouterLink } from 'vue-router'
-import listening_lessons from '@/data/lesson.json' // (or your import source)
+import listening_lessons from '@/data/lesson.json'
 import { speak, stopSpeak } from "@/utils/helpers";
 
 const route = useRoute()
