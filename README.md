@@ -1,7 +1,7 @@
 # 🌍 YallaEnglish — Learn English
 
 <p align="center">
-  <img src="public/logo.jpg" alt="YallaEnglish Logo" width="140" />
+  <img src="public/logo.png" alt="YallaEnglish Logo" width="140" />
 </p>
 
 > **YallaEnglish** is a 100% free, open-source english learning platform built for the world world.  
