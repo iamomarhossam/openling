@@ -17,6 +17,18 @@ export function stopSpeak() {
   }
 }
 
+export function speakAsync(text) { // I used that in reading page
+  return new Promise((resolve) => {
+    speak(text)
+    const check = setInterval(() => {
+      if (!window.speechSynthesis.speaking) {
+        clearInterval(check)
+        resolve()
+      }
+    }, 100)
+  })
+}
+
 export function textToUrl(text) { // "Ahmed in the Zoo" -> "ahmed-in-the-zoo"
   return text.trim().toLowerCase().replace(/\s+/g, "-")
 }

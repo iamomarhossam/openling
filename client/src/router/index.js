@@ -35,7 +35,7 @@ const routes = [
     component: () => import('@/views/read/index.vue'),
   },
   {
-    path: '/read/:id',
+    path: '/read/:topic',
     name: 'read-page',
     component: () => import('@/views/read/page.vue')
   },
